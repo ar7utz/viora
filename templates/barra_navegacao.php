@@ -29,6 +29,17 @@
 
           </ul>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Turmas
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<?= arquivo('modulos/aluno_turma/listar.php')?>">Lista</a></li>
+            <li><a class="dropdown-item" href="<?= arquivo('modulos/aluno_turma/criar.php')?>">Criar</a></li>
+
+          </ul>
+        </li>
+        </li>
         <li class="nav-item">
         <a class="nav-link active" href="<?= arquivo('modulos/mensagem/msg.php')?>">Nova Mensagem</a>
         </li>

@@ -3,12 +3,11 @@ include_once "../../config.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+<title>Aluno</title>
 <?php include_once path('templates/head.php') ?>
 
 <body>
     <?php include_once path('templates/barra_navegacao.php') ?>
-    <?php include_once path('templates/barra_lateral.php') ?>
-
     <div class="container" id="lateral2">
         <?php
         $id = $_GET['id'];

@@ -3,11 +3,11 @@ include_once "../../config.php";
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
+<title>Aluno</title>
 <?php include_once path('templates/head.php') ?>
 
 <body>
     <?php include_once path('templates/barra_navegacao.php') ?>
-    <?php include_once path('templates/barra_lateral.php') ?>
 
     <div class="container" id="lateral2">
         <?php
@@ -42,6 +42,7 @@ include_once "../../config.php";
                         <td>
                         <a class="btn btn-sm btn-primary" href="visualizar.php?id=<?= $aluno['ID'] ?>">Ver</a>
                         <a class="btn btn-sm btn-danger" href="deletar.php?ID=<?= $aluno['ID'] ?>">Excluir</a>
+                        <a class="btn btn-sm btn-success" href="mensagem.php?ID=<?= $aluno['ID'] ?>">Mensagem</a>
                     </td>
                     </tr>
                 <?php } ?>

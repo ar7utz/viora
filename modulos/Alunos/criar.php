@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+<title>Aluno</title>
 <?php
 include_once "../../config.php";
 ?>
