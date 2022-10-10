@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: none;
+}
+
+#head{
+    display: block;
+    box-sizing: border-box;
+    background-color: #323232;
+    text-align: left;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 100px;
+}
+
+#titulo{
+    color: #1579c2;
+    margin-left: 12px;
+}
+
+nav {
+    position: absolute;
+    margin-top: -30px;
+    margin-left: 1200px;
+}
+nav li {
+    display: inline;
+    margin: 0 0 0 15px;    
+}
+nav a {
+    text-transform: uppercase;
+    color: #1579c2;
+    font-weight: bold;
+    font-size: 15px;
+    text-decoration: none;
+}
+li a:hover{
+    color: #E70303;
+    transition: .5s;
+}
+
+#lateral1{
+    display: block;
+    box-sizing: border-box;
+    background-color: #cecece;
+    text-align: center;
+    margin-top: 15px;
+    width: 320px;
+    border-radius: 12px;
+    padding-bottom: 500px;
+    float: left;
+}
+
+#navl1{
+    position: absolute;
+    text-align: left;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+#navl1 a:hover{
+    background-color: #cecece;
+}
+
+
+/*fora da parada*/
+.collapsible {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #cecece;
+    text-transform: uppercase;
+    color: #1579c2;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    margin-top: 12px;
+    list-style: none;
+    text-decoration: none;
+    text-decoration-style: none;
+}
+  
+.active, .collapsible:hover {
+    background-color: #cecece;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+/*dentro da parada*/
+.collapsible:after {
+    content: '\002B';
+    color: #000;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+    margin-top: 12px;
+    list-style: none;
+    text-decoration: none;
+}
+  
+.active:after {
+    content: "\2212";
+    list-style: none;
+    text-decoration: none;
+}
+  
+.content {
+    text-align: left;
+    padding: 0 25px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: white;
+    text-decoration: none;
+}
+
+#lateral2{
+    float: right;
+    box-sizing: border-box;
+    background-color: #cecece;
+    border-radius: 12px;
+    margin-top: 15px;
+    width: 75%;
+    padding-bottom: 620px;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+#input, label[type=checkbox]{
+    text-transform: uppercase;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.clear{
+    clear: both;
+}
+
+#excluir{
+    text-decoration: none;
+}
