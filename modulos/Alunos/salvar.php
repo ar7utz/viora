@@ -15,9 +15,9 @@
     // Cria a sql para inserção no banco de dados
     $sql = "INSERT 
                 INTO aluno 
-                    (nome, telefone, telefone_sec, email, email_sec, email_inst, responsavel, responsavel_sec, senha) 
+                    (nome, telefone, telefone_sec, email, email_sec, email_inst, responsavel, responsavel_sec) 
                 VALUES 
-                    (:nome, :telefone, :telefone_sec, :email, :email_sec, :email_inst, :responsavel, :responsavel_sec, :senha)";
+                    (:nome, :telefone, :telefone_sec, :email, :email_sec, :email_inst, :responsavel, :responsavel_sec)";
 
     $res = $conexaoBanco->prepare($sql);
 
@@ -29,9 +29,26 @@
         ':email_sec'        => $email_sec,
         ':email_inst'       => $email_inst,
         ':responsavel'      => $responsavel,
-        ':responsavel_sec'  => $responsavel_sec,
-        ':senha'            => $senha
+        ':responsavel_sec'  => $responsavel_sec
+
     ]);
+
+    $sql = "INSERT 
+                INTO usuario 
+                    (tipo, tipo_aluno, tipo_prof, email, senha) 
+                VALUES 
+                    (:tipo, :tipo_aluno, :tipo_prof, :email, :senha)";
+
+    $res->execute([
+        ':tipo'             => $tipo,
+        ':tipo_aluno'       => $tipo_aluno,
+        ':tipo_prof'        => $tipo_prof,
+        ':email'            => $email,
+        ':senha'            => $senha
+
+    ]);
+
+    $res = $conexaoBanco->prepare($sql);
 
     $id = $conexaoBanco->lastInsertId();
 

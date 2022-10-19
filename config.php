@@ -15,3 +15,19 @@
     {
         return ROOT_PATH . $file;
     }
+
+    function pessoa()
+    {
+        $usuario = "user"();
+
+        if($usuario['tipo_aluno'] == 'aluno')
+        {
+            $sql = "SELECT * FROM usuario WHERE ID = {$usuario['tipo_aluno']}";
+            return retornaDado($sql);
+        }else if($usuario['tipo_prof'] == 'professor'){
+            $sql = "SELECT * FROM usuario WHERE ID = {$usuario['tipo_prof']}";
+            return retornaDado($sql);
+        }else{
+            return [];
+        }
+    }

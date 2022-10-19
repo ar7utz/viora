@@ -9,7 +9,6 @@ include_once path('modulos/login/sessao.php');
 
 <body>
     <?php include_once path('templates/barra_navegacao.php') ?>
-    <?php include_once path('templates/barra_lateral.php') ?>
 
     <div class="container" id="lateral2">
         <h2>Olá</h2>
