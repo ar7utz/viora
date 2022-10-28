@@ -25,6 +25,8 @@ include_once "../../config.php";
                 <h5 class="my-3"><?= $professor['nome'] ?></h5>
               </div>
             </div>
+            <a class="btn btn-sm btn-primary" href="editar.php?ID=<?= $professor['ID'] ?>">Editar</a>
+            <a class="btn btn-sm btn-danger" href="deletar.php?ID=<?= $professor['ID'] ?>">Excluir</a>
           </div>
           <div class="col-lg-8">
             <div class="card mb-4">

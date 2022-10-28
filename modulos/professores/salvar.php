@@ -8,7 +8,6 @@
     $email_sec      = $_POST['email_sec'];
     $email_inst     = $_POST['email_inst'];
     $senha          = $_POST['senha'];
-    $senha_conf     = $_POST['senha_conf'];
 
     // Cria a sql para inserção no banco de dados
     $sql = "INSERT 
@@ -27,6 +26,19 @@
         ':email_sec'    => $email_sec,
         ':email_inst'   => $email_inst,
         ':senha'        => $senha
+    ]);
+
+    $sql = "INSERT
+            INTO usuario 
+                (email, senha)
+            VALUES  
+                (:email, :senha)"; 
+    
+    $res = $conexaoBanco->prepare($sql);
+
+    $res->execute([
+        ':email'         => $nome,
+        ':senha'         => $senha
     ]);
 
     $id = $conexaoBanco->lastInsertId();

@@ -35,14 +35,14 @@
 
     $sql = "INSERT 
                 INTO usuario 
-                    (tipo, tipo_aluno, tipo_prof, email, senha) 
+                    (email, senha) 
                 VALUES 
-                    (:tipo, :tipo_aluno, :tipo_prof, :email, :senha)";
+                    (:email, :senha)";
+
+    $res = $conexaoBanco->prepare($sql);
 
     $res->execute([
-        ':tipo'             => $tipo,
-        ':tipo_aluno'       => $tipo_aluno,
-        ':tipo_prof'        => $tipo_prof,
+
         ':email'            => $email,
         ':senha'            => $senha
 
