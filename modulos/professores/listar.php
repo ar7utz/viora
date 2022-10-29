@@ -42,8 +42,8 @@ include_once "../../config.php";
                     <td><?= $professor['email'] ?></td>
                     <td>
                         <a class="btn btn-sm btn-primary" href="visualizar.php?id=<?= $professor['ID'] ?>">Ver</a>
-                        <a class="btn btn-sm btn-danger" href="deletar.php?id=<?= $aluno['ID'] ?>">Excluir</a>
-                        <a class="btn btn-sm btn-success" href="mensagem.php?id=<?= $aluno['ID'] ?>">Mensagem</a>
+                        <a class="btn btn-sm btn-danger" href="deletar.php?ID=<?= $professor['ID'] ?>">Excluir</a>
+                        <a class="btn btn-sm btn-success" href="mensagem.php?ID=<?= $professor['ID'] ?>">Mensagem</a>
                     </td>
                 </tr>
             <?php } ?>

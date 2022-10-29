@@ -39,7 +39,9 @@
     $res->execute([
         ':email'         => $nome,
         ':senha'         => $senha
-    ]);
+    ]); 
+
+    $res = $conexaoBanco->prepare($sql);
 
     $id = $conexaoBanco->lastInsertId();
 
