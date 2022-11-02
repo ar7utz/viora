@@ -34,8 +34,8 @@
             Turmas
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?= arquivo('modulos/aluno_turma/listar.php')?>">Lista</a></li>
-            <li><a class="dropdown-item" href="<?= arquivo('modulos/aluno_turma/criar.php')?>">Criar</a></li>
+            <li><a class="dropdown-item" href="<?= arquivo('modulos/turma/listar.php')?>">Lista</a></li>
+            <li><a class="dropdown-item" href="<?= arquivo('modulos/turma/criar.php')?>">Criar</a></li>
 
           </ul>
         </li>
