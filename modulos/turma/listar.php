@@ -4,7 +4,7 @@ include_once "../../config.php";
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-<title>Professor</title>
+<title>Turmas</title>
 <?php include_once path('templates/head.php') ?>
 
 <body>
@@ -13,7 +13,7 @@ include_once "../../config.php";
     <div class="container" id="lateral2">
         <?php
         $sql = "SELECT * FROM turma";
-        $professores = retornaDados($sql);
+        $turma = retornaDados($sql);
         ?>
 
         <table class="table">
@@ -35,15 +35,15 @@ include_once "../../config.php";
             
             <?php foreach ($turmas as $turma) { ?>
                 <tr>
-                    <th scope="row"><?= $professor['ID'] ?></th>
-                    <td><?= $professor['nome'] ?></td>
-                    <td><?= $professor['email'] ?></td>
-                    <td><?= $professor['telefone'] ?></td>
-                    <td><?= $professor['email'] ?></td>
+                    <th scope="row"><?= $turma['ID'] ?></th>
+                    <td><?= $turma['nome'] ?></td>
+                    <td><?= $turma['email'] ?></td>
+                    <td><?= $turma['telefone'] ?></td>
+                    <td><?= $turma['email'] ?></td>
                     <td>
-                        <a class="btn btn-sm btn-primary" href="visualizar.php?id=<?= $professor['ID'] ?>">Ver</a>
-                        <a class="btn btn-sm btn-danger" href="deletar.php?ID=<?= $professor['ID'] ?>">Excluir</a>
-                        <a class="btn btn-sm btn-success" href="mensagem.php?ID=<?= $professor['ID'] ?>">Mensagem</a>
+                        <a class="btn btn-sm btn-primary" href="visualizar.php?id=<?= $turma['ID'] ?>">Ver</a>
+                        <a class="btn btn-sm btn-danger" href="deletar.php?ID=<?= $turma['ID'] ?>">Excluir</a>
+                        <a class="btn btn-sm btn-success" href="mensagem.php?ID=<?= $turma['ID'] ?>">Mensagem</a>
                     </td>
                 </tr>
             <?php } ?>

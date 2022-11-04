@@ -29,10 +29,10 @@
     ]);
 
     $sql = "INSERT
-            INTO usuario 
-                (email, senha)
-            VALUES  
-                (:email, :senha)"; 
+                INTO usuario 
+                    (email, senha)
+                VALUES  
+                    (:email, :senha)"; 
     
     $res = $conexaoBanco->prepare($sql);
 

@@ -15,7 +15,8 @@
 
     $res->execute([
         ':curso'         => $nome,
-        ':periodo'       => $telefone
+        ':periodo'       => $telefone,
+        ':data'          => $data
     ]);
 
     

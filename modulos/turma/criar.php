@@ -12,7 +12,7 @@ include_once "../../config.php";
 
 
     <div class="container" id="lateral2">
-        <form method="POST" action="<?= arquivo('modulos/turmas/salvar.php'); ?>">
+        <form method="POST" action="<?= arquivo('modulos/turma/salvar.php'); ?>">
             <div class="mb-3">
                 <label class="form-label">Nome do Curso</label>
                 <input type="text" class="form-control" name="nome">
@@ -21,7 +21,7 @@ include_once "../../config.php";
             <div class="row">
                 <div class="mb-3">
                     <select class="form-control">
-                        <option selected>Período </option>
+                        <option selected> </option>
                         <option value="1">Diurno </option>
                         <option value="2">Vespertino </option>
                         <option value="3">Noturno </option>
@@ -35,6 +35,12 @@ include_once "../../config.php";
                 </div>
                 <div class="text-end">
                     <button type="submit" class="btn btn-primary">Criar</button>
+                </div>
+                <div class="row">
+                    <div class="mb-3">
+                        <select class="form-control">
+                            <option value="1"></option>
+                        </select>
                 </div>
         </form>
     </div>

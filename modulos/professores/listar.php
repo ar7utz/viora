@@ -18,7 +18,7 @@ include_once "../../config.php";
 
         <table class="table">
             <div class="container" id="lateral2">
-                <h2>Contatos</h2>
+                <h2>Professores</h2>
             </div>
             <div class="container-fluid">
                 <table class="table table-bordered ">
