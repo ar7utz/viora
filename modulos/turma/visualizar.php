@@ -21,12 +21,13 @@ include_once "../../config.php";
           <div class="col-lg-4">
             <div class="card mb-4">
               <div class="card-body text-center">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/User-avatar.svg/1200px-User-avatar.svg.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
-                <h5 class="my-3"><?= $turma['nome'] ?></h5>
+                <img src="https://cdn-icons-png.flaticon.com/512/69/69589.png" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                <h5 class="my-3"><?= $turma['curso'] ?></h5>
               </div>
             </div>
-            <a class="btn btn-sm btn-primary" href="editar.php?ID=<?= $turma['ID'] ?>">Editar</a>
-            <a class="btn btn-sm btn-danger" href="deletar.php?ID=<?= $turma['ID'] ?>">Excluir</a>
+            <a class="btn btn-sm btn-primary"  href="editar.php?ID=<?=    $turma['ID'] ?>">Editar</a>
+            <a class="btn btn-sm btn-danger"   href="deletar.php?ID=<?=   $turma['ID'] ?>">Excluir</a>
+            <a class="btn btn-sm btn-success"  href="inserir.php?ID=<?=   $turma['ID'] ?>">Inserir</a>
           </div>
           <div class="col-lg-8">
             <div class="card mb-4">
@@ -51,10 +52,10 @@ include_once "../../config.php";
                 <hr>
                 <div class="row">
                   <div class="col-sm-3">
-                    <p class="mb-0">Email Secundário</p>
+                    <p class="mb-0">Professor Representante</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0"><?= $turma['email_sec'] ?></p>
+                    <p class="text-muted mb-0"><?= $turma['professor'] ?></p>
                   </div>
                 </div>
               </div>

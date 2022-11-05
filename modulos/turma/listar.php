@@ -28,13 +28,13 @@ include_once "../../config.php";
                             <th scope="col">Curso</th>
                             <th scope="col">Período</th>
                             <th scope="col">Data de criação</th>
+                            <th scope="col"> </th>
                         </tr>
                         <tbody>
             
-            <?php foreach ($turmas as $turma) { ?>
+            <?php foreach ($turma as $turma) { ?>
                 <tr>
                     <th scope="row"><?= $turma['ID'] ?></th>
-                    <td><?= $turma['ID'] ?></td>
                     <td><?= $turma['curso'] ?></td>
                     <td><?= $turma['periodo'] ?></td>
                     <td><?= $turma['data'] ?></td>

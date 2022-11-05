@@ -21,9 +21,9 @@ include_once "../../config.php";
                 <div class="mb-3">
                 <label for="periodo">Período:</label>
                     <select class="form-control" name="periodo">
-                        <option value="dia">Diurno </option>
-                        <option value="tarde">Vespertino </option>
-                        <option value="noite">Noturno </option>
+                        <option value="Diurno">Diurno</option>
+                        <option value="Vespertino">Vespertino</option>
+                        <option value="Noturno">Noturno</option>
                     </select>
                 </div>
             </div>
@@ -35,7 +35,7 @@ include_once "../../config.php";
             </div>
             <div class="row">
                 <div class="mb-3">
-                    <label for="resp">Professor Responsável:</label>
+                    <label for="resp">Professor Representante:</label>
                     <select name="professor_id" class="form-control">
                         <option>Selecione uma opção</option>
                         <?php
