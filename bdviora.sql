@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 23-Set-2022 às 03:31
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+-- Tempo de geração: 05-Nov-2022 às 21:54
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -41,6 +41,16 @@ CREATE TABLE `aluno` (
   `senha_conf` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `aluno`
+--
+
+INSERT INTO `aluno` (`ID`, `nome`, `email`, `email_sec`, `email_inst`, `telefone`, `telefone_sec`, `responsavel`, `responsavel_sec`, `senha`, `senha_conf`) VALUES
+(2, 'Vitor Lucas Duarte de Miranda', 'vitin@hotmail.com', 'vitu@gmail.com', 'vitin@etec.sp.gov.br', 123, 123, 'Cristiano Ronaldo', 'Neymar ', '', ''),
+(6, 'asd', 'dd@asd', 'dd@asd', 'dd@asdd', 123, 123, 'asd', 'asdasd', '', ''),
+(13, 'Audinário corno', '123@123', 'email2@teste', 'vitin@etec.sp.gov.br', 123, 0, 'Cristiano Ronaldo', 'Neymar ', '', ''),
+(14, 'fausto', 'qwe@we', 'qwe@q', 'qwe@qwe', 123, 123, 'asd', 'asd', '', '');
+
 -- --------------------------------------------------------
 
 --
@@ -72,6 +82,16 @@ CREATE TABLE `professor` (
   `senha_conf` varchar(40) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Extraindo dados da tabela `professor`
+--
+
+INSERT INTO `professor` (`ID`, `nome`, `telefone`, `telefone_sec`, `email`, `email_sec`, `email_inst`, `senha`, `senha_conf`) VALUES
+(1, 'asd', 123, 123, 'asdas@asd', 'sad2asd@asd', 'asd@ASD', '123', ''),
+(2, 'Audinário corno', 123, 123, 'ordinario@asd', 'asd@asd', 'asd@asd', '123', ''),
+(3, 'Elda ', 123, 123, 'eldacorna@asd', 'eldagostosa@asd', 'eldadoida@asd', '123', ''),
+(7, 'cesar', 15665, 15646, 'cesar@awd', 'w@w', 'w@q', '123', '');
+
 -- --------------------------------------------------------
 
 --
@@ -93,8 +113,20 @@ CREATE TABLE `professor_turma` (
 
 CREATE TABLE `turma` (
   `ID` int(5) NOT NULL,
+  `curso` varchar(100) NOT NULL,
+  `periodo` varchar(20) NOT NULL,
   `data` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `turma`
+--
+
+INSERT INTO `turma` (`ID`, `curso`, `periodo`, `data`) VALUES
+(1, 'Manutenção e Suporte em Informática', '0', '2022-11-17'),
+(3, 'Farmácia', '0', '2022-11-30'),
+(4, 'Química', 'noite', '2022-11-26'),
+(5, 'Desenvolvimento de Sistemas', 'Noturno', '2022-11-30');
 
 -- --------------------------------------------------------
 
@@ -115,7 +147,20 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`ID`, `tipo`, `email`, `senha`, `ID_usuarioFK`) VALUES
-(3, '', 'adm@adm', '123', 1);
+(3, '', 'adm@adm', '123', 1),
+(4, '', 'vitin@hotmail.com', '123', 0),
+(5, '', 'Audinário corno', '123', 0),
+(6, '', 'Elda ', '123', 0),
+(7, '', 'dd@asd', '123', 0),
+(8, '', '123@123', '123', 0),
+(9, '', '123@123', '123', 0),
+(10, '', '123@123', '123', 0),
+(11, '', 'Elda ', '123', 0),
+(12, '', 'Elda ', '123', 0),
+(13, '', 'Elda ', '123', 0),
+(14, '', 'qwe@we', '123', 0),
+(15, '', 'cesar', '123', 0),
+(16, '', 'cesar', '123', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -154,25 +199,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT de tabela `turma`
 --
 ALTER TABLE `turma`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
