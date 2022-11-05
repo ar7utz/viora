@@ -46,7 +46,7 @@
     $id = $conexaoBanco->lastInsertId();
 
     if(!empty($id)){
-        header("Location: visualizar.php?id=$id");
+        header("Location: visualizar.php?ID=$id");
     }else{
         header("Location: criar.php");
     }

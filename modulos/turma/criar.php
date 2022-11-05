@@ -17,31 +17,41 @@ include_once "../../config.php";
                 <label class="form-label">Nome do Curso</label>
                 <input type="text" class="form-control" name="nome">
             </div>
-
             <div class="row">
                 <div class="mb-3">
-                    <select class="form-control">
-                        <option selected> </option>
-                        <option value="1">Diurno </option>
-                        <option value="2">Vespertino </option>
-                        <option value="3">Noturno </option>
+                <label for="periodo">Período:</label>
+                    <select class="form-control" name="periodo">
+                        <option value="dia">Diurno </option>
+                        <option value="tarde">Vespertino </option>
+                        <option value="noite">Noturno </option>
                     </select>
                 </div>
             </div>
             <div class="row">
                 <div class="mb-3">
-                    <label class="form-label">Professor Responsável</label>
-                    <input type="text" class="form-control" name="telefone">
+                    <label for="data">Data de Criação</label>
+                    <input type="date" name="data">
                 </div>
-                <div class="text-end">
-                    <button type="submit" class="btn btn-primary">Criar</button>
+            </div>
+            <div class="row">
+                <div class="mb-3">
+                    <label for="resp">Professor Responsável:</label>
+                    <select name="professor_id" class="form-control">
+                        <option>Selecione uma opção</option>
+                        <?php
+                        $sql = "SELECT ID, nome FROM professor";
+                        $professores = retornaDados($sql);
+
+                        foreach ($professores as $professor) {
+                            echo "<option value={$professor['id']}>{$professor['nome']}</option>";
+                        }
+                        ?>
+                    </select>
                 </div>
-                <div class="row">
-                    <div class="mb-3">
-                        <select class="form-control">
-                            <option value="1"></option>
-                        </select>
-                </div>
+            </div>
+            <div class="text-end">
+                <button type="submit" class="btn btn-primary">Criar</button>
+            </div>
         </form>
     </div>
 
