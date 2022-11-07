@@ -12,7 +12,7 @@ include_once "../../config.php";
     <?php
     $id = $_GET['ID'];
 
-    $sql = "SELECT * FROM professor WHERE id = $id";
+    $sql = "SELECT * FROM professor WHERE ID = $id";
     $professor = retornaDado($sql);
     ?>
     <section style="background-color: #eee;">

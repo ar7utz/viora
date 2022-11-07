@@ -10,9 +10,9 @@ include_once "../../config.php";
     <?php include_once path('templates/barra_navegacao.php') ?>
     <div class="container" id="lateral2">
         <?php
-        $id = $_GET['id'];
+        $id = $_GET['ID'];
 
-        $sql = "SELECT * FROM aluno WHERE id = $id";
+        $sql = "SELECT * FROM aluno WHERE ID = $id";
         $aluno = retornaDado($sql);
         ?>
         <section style="background-color: #eee;">
