@@ -61,12 +61,6 @@ include_once "../../config.php";
                         <input type="password" class="form-control" name="senha">
                     </div>
                 </div>
-                <div class="col-12 col-sm-12 col-md-6 col-lg-6">
-                    <div class="mb-3">
-                        <label class="form-label">Senha Confirmação</label>
-                        <input type="password" class="form-control" name="senha_conf">
-                    </div>
-                </div>
             </div>
             
             <div class="text-end">
