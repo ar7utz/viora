@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Nov-2022 às 02:31
--- Versão do servidor: 10.4.22-MariaDB
--- versão do PHP: 8.0.13
+-- Generation Time: 12-Nov-2022 às 20:00
+-- Versão do servidor: 10.1.38-MariaDB
+-- versão do PHP: 7.1.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `bdviora`
+-- Database: `bdviora`
 --
 
 -- --------------------------------------------------------
@@ -50,7 +51,8 @@ INSERT INTO `aluno` (`ID`, `nome`, `email`, `email_sec`, `email_inst`, `telefone
 (6, 'asd', 'dd@asd', 'dd@asd', 'dd@asdd', 123, 123, 'asd', 'asdasd', '', ''),
 (13, 'Audinário corno', '123@123', 'email2@teste', 'vitin@etec.sp.gov.br', 123, 0, 'Cristiano Ronaldo', 'Neymar ', '', ''),
 (14, 'fausto', 'qwe@we', 'qwe@q', 'qwe@qwe', 123, 123, 'asd', 'asd', '', ''),
-(20, 'a', 'a@a', 's@a', 'a@a', 2, 2, 'a', 'a', '', '');
+(20, 'a', 'a@a', 's@a', 'a@a', 2, 2, 'a', 'a', '', ''),
+(22, 'artur ', 'a@a', 'a@a', 'a@a', 18, 18, 'artur', 'artur', '', '');
 
 -- --------------------------------------------------------
 
@@ -62,8 +64,25 @@ CREATE TABLE `aluno_turma` (
   `ID` int(5) NOT NULL,
   `ID_aluno` int(5) NOT NULL,
   `ID_turma` int(5) NOT NULL,
-  `data` date NOT NULL
+  `data` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `aluno_turma`
+--
+
+INSERT INTO `aluno_turma` (`ID`, `ID_aluno`, `ID_turma`, `data`) VALUES
+(1, 13, 5, '2022-11-12 19:12:49'),
+(2, 14, 5, '2022-11-12 19:13:26'),
+(3, 6, 5, '2022-11-12 19:13:50'),
+(5, 2, 5, '2022-11-12 19:21:07'),
+(6, 14, 6, '2022-11-12 19:28:46'),
+(7, 13, 7, '2022-11-12 19:28:56'),
+(8, 6, 7, '2022-11-12 19:34:47'),
+(9, 2, 5, '2022-11-12 19:35:29'),
+(10, 14, 5, '2022-11-12 19:35:35'),
+(11, 22, 5, '2022-11-12 19:36:29'),
+(12, 2, 6, '2022-11-12 20:00:08');
 
 -- --------------------------------------------------------
 
@@ -159,64 +178,77 @@ INSERT INTO `usuario` (`ID`, `tipo`, `email`, `senha`, `ID_usuarioFK`) VALUES
 (22, '', 'a@a', '123', 0),
 (23, '', 'a@a', '123', 0),
 (24, '', 'a@a', '123', 0),
-(25, '', 'a@a', '123', 0);
+(25, '', 'a@a', '123', 0),
+(26, '', 'a@a', '123', 0);
 
 --
--- Índices para tabelas despejadas
+-- Indexes for dumped tables
 --
 
 --
--- Índices para tabela `aluno`
+-- Indexes for table `aluno`
 --
 ALTER TABLE `aluno`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `professor`
+-- Indexes for table `aluno_turma`
+--
+ALTER TABLE `aluno_turma`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `professor`
 --
 ALTER TABLE `professor`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `turma`
+-- Indexes for table `turma`
 --
 ALTER TABLE `turma`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Índices para tabela `usuario`
+-- Indexes for table `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `ID_usuarioFK` (`ID_usuarioFK`);
 
 --
--- AUTO_INCREMENT de tabelas despejadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de tabela `aluno`
+-- AUTO_INCREMENT for table `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT de tabela `professor`
+-- AUTO_INCREMENT for table `aluno_turma`
+--
+ALTER TABLE `aluno_turma`
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT for table `professor`
 --
 ALTER TABLE `professor`
   MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT de tabela `turma`
+-- AUTO_INCREMENT for table `turma`
 --
 ALTER TABLE `turma`
   MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT de tabela `usuario`
+-- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

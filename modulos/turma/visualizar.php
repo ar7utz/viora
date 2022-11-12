@@ -13,11 +13,15 @@ include_once "../../config.php";
       $id = $_GET['ID'];
 
       $sql = "SELECT 
-                * 
+                t.ID,
+                t.professor_id,
+                t.curso,
+                t.periodo,
+                p.nome
               FROM 
-                turma 
-                left join professor on (turma.professor_id = professor.ID)
-              WHERE turma.ID = $id";
+                turma t
+                left join professor p on (t.professor_id = p.ID)
+              WHERE t.ID = $id";
               
       $turma = retornaDado($sql);
     ?>
@@ -71,6 +75,38 @@ include_once "../../config.php";
               </div>
             </div>
           </div>
+        </div>
+
+        <div class="">
+          <?php
+            $sql = "SELECT aluno.nome FROM aluno_turma join aluno on (aluno_turma.ID_aluno = aluno.ID) WHERE ID_turma = {$turma['ID']}";
+            $alunos = retornaDados($sql);
+          ?>
+
+          <h3 class="text-center">Lista de alunos</h3>
+          <table class="table table-striped my-3">
+            <thead>
+              <tr class="table-primary">
+                <th>Aluno</th>
+                <th>#</th>
+                <th>data</th>
+              </tr>  
+            </thead>
+
+            <tbody>
+              <?php
+                foreach($alunos as $aluno){ ?>
+                  <tr>
+                    <td><?= $aluno['nome'] ?></td>
+                    <td>
+                      <button class="btn btn-danger btn-sm">X</button>
+                    </td>
+                  </tr>
+                  
+
+                <?php } ?>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
