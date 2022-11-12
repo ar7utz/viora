@@ -39,12 +39,12 @@ include_once "../../config.php";
                     <select name="professor_id" class="form-control">
                         <option>Selecione uma opção</option>
                         <?php
-                        $sql = "SELECT ID, nome FROM professor";
-                        $professores = retornaDados($sql);
+                            $sql = "SELECT ID, nome FROM professor";
+                            $professores = retornaDados($sql);
 
-                        foreach ($professores as $professor) {
-                            echo "<option value={$professor['id']}>{$professor['nome']}</option>";
-                        }
+                            foreach ($professores as $professor) {
+                                echo "<option value={$professor['ID']}>{$professor['nome']}</option>";
+                            }
                         ?>
                     </select>
                 </div>

@@ -10,7 +10,6 @@
     $responsavel       = $_POST['responsavel'];
     $responsavel_sec   = $_POST['responsavel_sec'];
     $senha             = $_POST['senha'];
-    $senha_conf        = $_POST['senha_conf'];
 
     // Cria a sql para inserção no banco de dados
     $sql = "INSERT 
@@ -33,27 +32,12 @@
 
     ]);
 
-    $sql = "INSERT 
-                INTO usuario 
-                    (email, senha) 
-                VALUES 
-                    (:email, :senha)";
-
-    $res = $conexaoBanco->prepare($sql);
-
-    $res->execute([
-
-        ':email'            => $email,
-        ':senha'            => $senha
-
-    ]);
-
-    $res = $conexaoBanco->prepare($sql);
-
-    $id = $conexaoBanco->lastInsertId();
+    $id = $conexaoBanco->lastInsertId(); 
+    
+    criarUsuario($email, $senha);
 
     if(!empty($id)){
-        header("Location: visualizar.php?ID=$id");
+        header("Location: visualizar.php?id=$id");
     }else{
         header("Location: criar.php");
     }

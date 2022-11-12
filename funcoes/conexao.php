@@ -30,3 +30,22 @@
 
         return $resposta->fetchAll();
     }
+
+    function criarUsuario($email, $senha){
+        $conexao = $GLOBALS['conexaoBanco']; 
+
+        $sql = "INSERT 
+                    INTO usuario 
+                        (email, senha) 
+                    VALUES 
+                        (:email, :senha)";
+    
+        $res = $conexao->prepare($sql);
+    
+        $res->execute([
+            ':email'            => $email,
+            ':senha'            => $senha
+        ]);
+    
+        $res = $conexao->prepare($sql);
+    }

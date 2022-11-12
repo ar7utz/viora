@@ -28,22 +28,11 @@
         ':senha'        => $senha
     ]);
 
-    $sql = "INSERT
-                INTO usuario 
-                    (email, senha)
-                VALUES  
-                    (:email, :senha)"; 
-    
-    $res = $conexaoBanco->prepare($sql);
-
-    $res->execute([
-        ':email'         => $nome,
-        ':senha'         => $senha
-    ]); 
-
-    $res = $conexaoBanco->prepare($sql);
-
     $id = $conexaoBanco->lastInsertId();
+
+    criarUsuario($email, $senha);
+
+    $res = $conexaoBanco->prepare($sql);
 
     if(!empty($id)){
         header("Location: visualizar.php?ID=$id");

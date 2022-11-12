@@ -10,10 +10,16 @@ include_once "../../config.php";
   <?php include_once path('templates/barra_navegacao.php') ?>
   <div class="container" id="lateral2">
     <?php
-    $id = $_GET['ID'];
+      $id = $_GET['ID'];
 
-    $sql = "SELECT * FROM turma WHERE ID = $id";
-    $turma = retornaDado($sql);
+      $sql = "SELECT 
+                * 
+              FROM 
+                turma 
+                left join professor on (turma.professor_id = professor.ID)
+              WHERE turma.ID = $id";
+              
+      $turma = retornaDado($sql);
     ?>
     <section style="background-color: #eee;">
       <div class="container py-5">
@@ -27,7 +33,7 @@ include_once "../../config.php";
             </div>
             <a class="btn btn-sm btn-primary"  href="editar.php?ID=<?=    $turma['ID'] ?>">Editar</a>
             <a class="btn btn-sm btn-danger"   href="deletar.php?ID=<?=   $turma['ID'] ?>">Excluir</a>
-            <a class="btn btn-sm btn-success"  href="inserir.php?ID=<?=   $turma['ID'] ?>">Inserir</a>
+            <a class="btn btn-sm btn-success"  href="adicionar_aluno.php?ID=<?=   $turma['ID'] ?>">Adicionar Aluno</a>
           </div>
           <div class="col-lg-8">
             <div class="card mb-4">
@@ -55,7 +61,11 @@ include_once "../../config.php";
                     <p class="mb-0">Professor Representante</p>
                   </div>
                   <div class="col-sm-9">
-                    <p class="text-muted mb-0"><?= $turma['professor'] ?></p>
+                    <p class="text-muted mb-0">
+                      <a href="<?= arquivo('modulos/professores/visualizar.php?ID=' . $turma['professor_id']) ?>">
+                        <?= $turma['nome'] ?>
+                      </a>
+                    </p>
                   </div>
                 </div>
               </div>
