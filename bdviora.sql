@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Nov-2022 às 21:54
--- Versão do servidor: 10.4.25-MariaDB
--- versão do PHP: 8.1.10
+-- Tempo de geração: 12-Nov-2022 às 02:31
+-- Versão do servidor: 10.4.22-MariaDB
+-- versão do PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -49,7 +49,8 @@ INSERT INTO `aluno` (`ID`, `nome`, `email`, `email_sec`, `email_inst`, `telefone
 (2, 'Vitor Lucas Duarte de Miranda', 'vitin@hotmail.com', 'vitu@gmail.com', 'vitin@etec.sp.gov.br', 123, 123, 'Cristiano Ronaldo', 'Neymar ', '', ''),
 (6, 'asd', 'dd@asd', 'dd@asd', 'dd@asdd', 123, 123, 'asd', 'asdasd', '', ''),
 (13, 'Audinário corno', '123@123', 'email2@teste', 'vitin@etec.sp.gov.br', 123, 0, 'Cristiano Ronaldo', 'Neymar ', '', ''),
-(14, 'fausto', 'qwe@we', 'qwe@q', 'qwe@qwe', 123, 123, 'asd', 'asd', '', '');
+(14, 'fausto', 'qwe@we', 'qwe@q', 'qwe@qwe', 123, 123, 'asd', 'asd', '', ''),
+(20, 'a', 'a@a', 's@a', 'a@a', 2, 2, 'a', 'a', '', '');
 
 -- --------------------------------------------------------
 
@@ -90,20 +91,8 @@ INSERT INTO `professor` (`ID`, `nome`, `telefone`, `telefone_sec`, `email`, `ema
 (1, 'asd', 123, 123, 'asdas@asd', 'sad2asd@asd', 'asd@ASD', '123', ''),
 (2, 'Audinário corno', 123, 123, 'ordinario@asd', 'asd@asd', 'asd@asd', '123', ''),
 (3, 'Elda ', 123, 123, 'eldacorna@asd', 'eldagostosa@asd', 'eldadoida@asd', '123', ''),
-(7, 'cesar', 15665, 15646, 'cesar@awd', 'w@w', 'w@q', '123', '');
-
--- --------------------------------------------------------
-
---
--- Estrutura da tabela `professor_turma`
---
-
-CREATE TABLE `professor_turma` (
-  `ID` int(5) NOT NULL,
-  `data` date NOT NULL,
-  `ID_turma` int(5) NOT NULL,
-  `ID_professor` int(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+(7, 'cesar', 15665, 15646, 'cesar@awd', 'w@w', 'w@q', '123', ''),
+(9, 'a', 2, 2, 'a@a', 'a@a', 'a@a', '123', '');
 
 -- --------------------------------------------------------
 
@@ -115,18 +104,19 @@ CREATE TABLE `turma` (
   `ID` int(5) NOT NULL,
   `curso` varchar(100) NOT NULL,
   `periodo` varchar(20) NOT NULL,
-  `data` date NOT NULL
+  `data` date NOT NULL,
+  `professor_id` int(11) NOT NULL,
+  `aluno_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Extraindo dados da tabela `turma`
 --
 
-INSERT INTO `turma` (`ID`, `curso`, `periodo`, `data`) VALUES
-(1, 'Manutenção e Suporte em Informática', '0', '2022-11-17'),
-(3, 'Farmácia', '0', '2022-11-30'),
-(4, 'Química', 'noite', '2022-11-26'),
-(5, 'Desenvolvimento de Sistemas', 'Noturno', '2022-11-30');
+INSERT INTO `turma` (`ID`, `curso`, `periodo`, `data`, `professor_id`, `aluno_id`) VALUES
+(5, 'Desenvolvimento de Sistemas', 'Noturno', '2022-11-30', 7, 0),
+(6, 'Curso de ADS', 'Diurno', '2022-11-24', 0, 0),
+(7, 'Curso de ADS', 'Noturno', '2022-11-09', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -160,7 +150,16 @@ INSERT INTO `usuario` (`ID`, `tipo`, `email`, `senha`, `ID_usuarioFK`) VALUES
 (13, '', 'Elda ', '123', 0),
 (14, '', 'qwe@we', '123', 0),
 (15, '', 'cesar', '123', 0),
-(16, '', 'cesar', '123', 0);
+(16, '', 'cesar', '123', 0),
+(17, '', 'a@s', '123', 0),
+(18, '', 'a', '123', 0),
+(19, '', 'a', '123', 0),
+(20, '', 'a@a', '123', 0),
+(21, '', 'a@a', '123', 0),
+(22, '', 'a@a', '123', 0),
+(23, '', 'a@a', '123', 0),
+(24, '', 'a@a', '123', 0),
+(25, '', 'a@a', '123', 0);
 
 --
 -- Índices para tabelas despejadas
@@ -199,25 +198,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT de tabela `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `turma`
 --
 ALTER TABLE `turma`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
