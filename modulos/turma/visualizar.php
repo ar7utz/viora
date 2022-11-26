@@ -38,6 +38,7 @@ include_once "../../config.php";
             <a class="btn btn-sm btn-primary"  href="editar.php?ID=<?=    $turma['ID'] ?>">Editar</a>
             <a class="btn btn-sm btn-danger"   href="deletar.php?ID=<?=   $turma['ID'] ?>">Excluir</a>
             <a class="btn btn-sm btn-success"  href="adicionar_aluno.php?ID=<?=   $turma['ID'] ?>">Adicionar Aluno</a>
+            <a class="btn btn-sm btn-success"  href="<?= arquivo("modulos/mensagem/msg.php?id_turma={$turma['ID']}") ?>">Enviar Mensagem</a>
           </div>
           <div class="col-lg-8">
             <div class="card mb-4">
