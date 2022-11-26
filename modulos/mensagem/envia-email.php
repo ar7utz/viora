@@ -1,79 +1,52 @@
 <?php
-$nome = utf8_decode($_POST['nome']);
-$email = utf8_decode($_POST['email']);
-$mensagem = utf8_decode($_POST['mensagem']);
+    // Importa as classes do PHPMailer como globais
+    use PHPMailer\PHPMailer\PHPMailer;
+    use PHPMailer\PHPMailer\SMTP;
+    use PHPMailer\PHPMailer\Exception;
 
-require 'PHPMailer/PHPMailerAutoload.php';
+    // Pega os arquivos da biblioteca
+    require 'PHPMailer/src/Exception.php';
+    require 'PHPMailer/src/PHPMailer.php';
+    require 'PHPMailer/src/SMTP.php';
 
-$email = new PHPMailer;
-$email->isSMTP();
+    function enviarEmail($destinatarios, $assunto, $mensagem)
+    {
+        // Criar uma instancia da classe PHPMailer
+        $email = new PHPMailer;
 
-//Configuração de servidor de e-mail
-$email->Host = "smtp.gmail.com";
-$email->Port = "587";
-$email->SMTPSecure = "tls";
-$email->SMTPAuth = "true";
-$email->Username = "agendaviora@gmail.com";
-$email->Password = "AgendaViora2022";
+        // Configurações do Servidor
+        $email->isSMTP(); // Define que o e-mail vai ser do tipo SMTP
+        $email->Host = "smtp.office365.com"; // Define o Host para envio de email
+        $email->SMTPAuth = true; // Habilita a autenticacao com SMTP
 
-//Configuração da Mensagem
-$email->setFrom($email->username,"Seu Nome"); //remetende
-$email->addAddress(''); //destinatario
-$email->Subject = "Agenda Viora"; //Assunto do email
+        // Usuarios do e-mail
+        $email->Username =  'agendaviora@hotmail.com';
+        $email->Password = 'emailviora2022';
+        $email->SMTPSecure = 'tls';
+        $email->Port = 587;
 
-$conteudo_email = "
-Você recebeu uma mensagem de $nome, ($email)
-<br><br>
+        // Informaçõs de quem vai enviar o e-mail
+        $email->setFrom('agendaviora@hotmail.com', 'Viora Website');
+        $email->addReplyTo('agendaviora@hotmail.com', 'Viora Website');
 
-Mensagem <br>
-$mensagem
-";
+        // Informações de quem vai receber o e=mail
 
-$email->IsHTML(true);
-$email->Body = $conteudo_email;
+        foreach ($destinatarios as $destinatario) {
+            $email->addAddress($destinatario['email'], $destinatario['nome']);
+        }
 
-if ( $email->send()){
+        // Dados para corpo do email
+        $email->isHTML(true); // Define que vamos enviar um HTML como email
 
-    echo "E-mail enviado com Sucesso!";
+        $email->Subject = $assunto; // Aqui definimos o assunto do email
 
-} else {
+        // Corpo do e-mail
+        $email->Body = $mensagem;
 
-    echo "Falha ao enviar o e-mail: " . $email->ErrorInfo;
-} ?>
-
-
-
-
-
-
-
-
-<?php
-
-require 'PHPMailer/src/Exception.php';
-require 'PHPMailer/src/PHPMailer.php';
-require 'PHPMailer/src/SMTP.php';
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
-use PHPMailer\PHPMailer\Exception;
-
-$email = new PHPMailer();
-$email->isSMTP();
-$email->Host = "smtp.gmail.com";
-$email->SMTPAuth = "true";
-$email->SMTPSecure = "tls";
-$email->Port ="587";
-$email->Username = "agendaviora@gmail.com";
-$email->Password = "AgendaViora2022";
-$email->Subject = "Email de teste from localhost";
-$email->setFrom("a28032003@hotmail.com");
-$email->addStringAttachment(file_get_contents("https://quickchart.io/qr?text=Here%27s%20my%20text"), "qr.jpg");
-$email->Body = 'Este e um email de teste pelo localhost ';
-$email->addAddress("xxxx@gmail.com");
-if($email->Send()){
-    echo"Email envidado";
-}else{
-    echo "nao enviado";
-}
-$email->smtpClose();
+        // Envia o email
+        if ($email->send()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
