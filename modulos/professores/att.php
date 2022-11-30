@@ -6,17 +6,21 @@
     $id = $_POST['ID'];
     $nome = $_POST['nome'];
     $telefone = $_POST['telefone'];
+    $telefone_sec = $_POST['telefone_sec'];
     $email = $_POST['email'];
-    $responsavel = $_POST['responsavel'];
+    $email_sec = $_POST['email_sec'];
+    $email_inst = $_POST['email_inst'];
+    $senha = $_POST['senha'];
 
     // Cria a sql para armazenar os valores no banco
     $sql = "UPDATE professor
         SET 
-            nome = :nome, 
-            telefone = :telefone, 
+            nome = :nome,
+            telefone = :telefone,
             telefone_sec = :telefone_sec,
-            email = :email, 
-            responsavel = :responsavel,
+            email = :email,
+            email_sec = :email_sec,
+            email_inst = :email_inst,
             senha = :senha,
         WHERE 
             ID = :id";
@@ -26,8 +30,10 @@
     $resultado = $peparada->execute([
         ':nome'  => $nome,
         ':telefone'  => $telefone,
+        ':telefone_sec' => $telefone_sec,
         ':email'  => $email,
-        ':responsavel'  => $responsavel,
+        ':email_sec' => $email_sec,
+        ':email_inst' => $email_inst,
         ':senha' => $senha,
         ':ID' => $id
     ]);
