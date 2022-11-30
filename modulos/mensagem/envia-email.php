@@ -20,14 +20,14 @@
         $email->SMTPAuth = true; // Habilita a autenticacao com SMTP
 
         // Usuarios do e-mail
-        $email->Username =  'agendaviora@hotmail.com';
-        $email->Password = 'emailviora2022';
+        $email->Username =  'envioviorapp@hotmail.com';
+        $email->Password = 'vioraapp2022';
         $email->SMTPSecure = 'tls';
         $email->Port = 587;
 
         // Informaçõs de quem vai enviar o e-mail
-        $email->setFrom('agendaviora@hotmail.com', 'Viora Website');
-        $email->addReplyTo('agendaviora@hotmail.com', 'Viora Website');
+        $email->setFrom('envioviorapp@hotmail.com', 'Viora Website');
+        $email->addReplyTo('envioviorapp@hotmail.com', 'Viora Website');
 
         // Informações de quem vai receber o e=mail
 
