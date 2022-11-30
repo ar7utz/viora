@@ -21,13 +21,13 @@
 
         // Usuarios do e-mail
         $email->Username =  'envioviorapp@hotmail.com';
-        $email->Password = 'vioraapp2022';
+        $email->Password = 'senhaviora2022';
         $email->SMTPSecure = 'tls';
         $email->Port = 587;
 
         // Informaçõs de quem vai enviar o e-mail
         $email->setFrom('envioviorapp@hotmail.com', 'Viora Website');
-        $email->addReplyTo('envioviorapp@hotmail.com', 'Viora Website');
+        $email->addReplyTo('envioviorapp@hotmail.com', 'Viora');
 
         // Informações de quem vai receber o e=mail
 

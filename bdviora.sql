@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Nov-2022 às 20:00
--- Versão do servidor: 10.1.38-MariaDB
--- versão do PHP: 7.1.27
+-- Tempo de geração: 30-Nov-2022 às 21:09
+-- Versão do servidor: 10.4.25-MariaDB
+-- versão do PHP: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bdviora`
+-- Banco de dados: `bdviora`
 --
 
 -- --------------------------------------------------------
@@ -47,12 +46,11 @@ CREATE TABLE `aluno` (
 --
 
 INSERT INTO `aluno` (`ID`, `nome`, `email`, `email_sec`, `email_inst`, `telefone`, `telefone_sec`, `responsavel`, `responsavel_sec`, `senha`, `senha_conf`) VALUES
-(2, 'Vitor Lucas Duarte de Miranda', 'vitin@hotmail.com', 'vitu@gmail.com', 'vitin@etec.sp.gov.br', 123, 123, 'Cristiano Ronaldo', 'Neymar ', '', ''),
-(6, 'asd', 'dd@asd', 'dd@asd', 'dd@asdd', 123, 123, 'asd', 'asdasd', '', ''),
-(13, 'Audinário corno', '123@123', 'email2@teste', 'vitin@etec.sp.gov.br', 123, 0, 'Cristiano Ronaldo', 'Neymar ', '', ''),
-(14, 'fausto', 'qwe@we', 'qwe@q', 'qwe@qwe', 123, 123, 'asd', 'asd', '', ''),
-(20, 'a', 'a@a', 's@a', 'a@a', 2, 2, 'a', 'a', '', ''),
-(22, 'artur ', 'a@a', 'a@a', 'a@a', 18, 18, 'artur', 'artur', '', '');
+(25, 'Guilherme Sugano', 'gui_sugano@hotmail.com', '', '', 18, 18, 'Pai', 'Mae', '', ''),
+(26, 'Patrícia Pires', 'paty_dml@hotmail.com', '', '', 18, 18, 'Pai', 'Mae', '', ''),
+(27, 'Gilvan Santos ', 'gilvanjr306@gmail.com', '', '', 18, 18, 'Pai', 'Mae', '', ''),
+(28, 'Artur Pereira', 'pereira.artur@hotmail.com', 'email.1@hotmail.com', 'artur.etec@gov.br', 18, 18, 'Mãe', 'Pai', '', ''),
+(29, 'Flávio Henrique ', 'flavio18hds@gmail.com', 'flavio2.email@hotmail.com', 'flavio.etec@gov.br', 18, 18, 'Mãe', 'Pai', '', '');
 
 -- --------------------------------------------------------
 
@@ -72,17 +70,22 @@ CREATE TABLE `aluno_turma` (
 --
 
 INSERT INTO `aluno_turma` (`ID`, `ID_aluno`, `ID_turma`, `data`) VALUES
-(1, 13, 5, '2022-11-12 19:12:49'),
-(2, 14, 5, '2022-11-12 19:13:26'),
-(3, 6, 5, '2022-11-12 19:13:50'),
-(5, 2, 5, '2022-11-12 19:21:07'),
-(6, 14, 6, '2022-11-12 19:28:46'),
-(7, 13, 7, '2022-11-12 19:28:56'),
-(8, 6, 7, '2022-11-12 19:34:47'),
-(9, 2, 5, '2022-11-12 19:35:29'),
-(10, 14, 5, '2022-11-12 19:35:35'),
-(11, 22, 5, '2022-11-12 19:36:29'),
-(12, 2, 6, '2022-11-12 20:00:08');
+(15, 25, 8, '2022-11-30 19:41:09'),
+(16, 26, 8, '2022-11-30 19:42:45'),
+(17, 27, 8, '2022-11-30 19:42:53'),
+(18, 26, 9, '2022-11-30 19:59:30'),
+(19, 27, 9, '2022-11-30 19:59:35'),
+(20, 23, 9, '2022-11-30 19:59:43'),
+(21, 24, 9, '2022-11-30 19:59:47'),
+(22, 23, 10, '2022-11-30 20:02:13'),
+(23, 27, 10, '2022-11-30 20:02:20'),
+(24, 23, 11, '2022-11-30 20:25:48'),
+(25, 24, 11, '2022-11-30 20:44:57'),
+(26, 27, 11, '2022-11-30 20:45:02'),
+(27, 28, 12, '2022-11-30 20:51:52'),
+(28, 29, 12, '2022-11-30 20:57:27'),
+(29, 27, 12, '2022-11-30 20:57:47'),
+(30, 28, 13, '2022-11-30 21:08:37');
 
 -- --------------------------------------------------------
 
@@ -107,11 +110,7 @@ CREATE TABLE `professor` (
 --
 
 INSERT INTO `professor` (`ID`, `nome`, `telefone`, `telefone_sec`, `email`, `email_sec`, `email_inst`, `senha`, `senha_conf`) VALUES
-(1, 'asd', 123, 123, 'asdas@asd', 'sad2asd@asd', 'asd@ASD', '123', ''),
-(2, 'Audinário corno', 123, 123, 'ordinario@asd', 'asd@asd', 'asd@asd', '123', ''),
-(3, 'Elda ', 123, 123, 'eldacorna@asd', 'eldagostosa@asd', 'eldadoida@asd', '123', ''),
-(7, 'cesar', 15665, 15646, 'cesar@awd', 'w@w', 'w@q', '123', ''),
-(9, 'a', 2, 2, 'a@a', 'a@a', 'a@a', '123', '');
+(11, 'Rodrigo Albino ', 18, 18, 'rodrigo.email@hotmail.com', 'rodrigo2.email@outlook.com', 'rodrigo.etec@gov.br', '123', '');
 
 -- --------------------------------------------------------
 
@@ -133,9 +132,8 @@ CREATE TABLE `turma` (
 --
 
 INSERT INTO `turma` (`ID`, `curso`, `periodo`, `data`, `professor_id`, `aluno_id`) VALUES
-(5, 'Desenvolvimento de Sistemas', 'Noturno', '2022-11-30', 7, 0),
-(6, 'Curso de ADS', 'Diurno', '2022-11-24', 0, 0),
-(7, 'Curso de ADS', 'Noturno', '2022-11-09', 2, 0);
+(12, 'Técnico em Informática', 'Noturno', '2022-11-30', 3, 0),
+(13, 'Manutenção e Suporte em Informática', 'Vespertino', '2022-11-30', 11, 0);
 
 -- --------------------------------------------------------
 
@@ -157,98 +155,81 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`ID`, `tipo`, `email`, `senha`, `ID_usuarioFK`) VALUES
 (3, '', 'adm@adm', '123', 1),
-(4, '', 'vitin@hotmail.com', '123', 0),
-(5, '', 'Audinário corno', '123', 0),
-(6, '', 'Elda ', '123', 0),
-(7, '', 'dd@asd', '123', 0),
-(8, '', '123@123', '123', 0),
-(9, '', '123@123', '123', 0),
-(10, '', '123@123', '123', 0),
-(11, '', 'Elda ', '123', 0),
-(12, '', 'Elda ', '123', 0),
-(13, '', 'Elda ', '123', 0),
-(14, '', 'qwe@we', '123', 0),
-(15, '', 'cesar', '123', 0),
-(16, '', 'cesar', '123', 0),
-(17, '', 'a@s', '123', 0),
-(18, '', 'a', '123', 0),
-(19, '', 'a', '123', 0),
-(20, '', 'a@a', '123', 0),
-(21, '', 'a@a', '123', 0),
-(22, '', 'a@a', '123', 0),
-(23, '', 'a@a', '123', 0),
-(24, '', 'a@a', '123', 0),
-(25, '', 'a@a', '123', 0),
-(26, '', 'a@a', '123', 0);
+(29, '', 'gui_sugano@hotmail.com', '123', 0),
+(30, '', 'paty_dml@hotmail.com', '123', 0),
+(31, '', 'gilvanjr306@gmail.com', '123', 0),
+(32, '', 'pereira.artur@hotmail.com', '123', 0),
+(33, '', 'flavio18hds@gmail.com', '123', 0),
+(34, '', 'rodrigo.email@hotmail.com', '123', 0);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `aluno`
+-- Índices para tabela `aluno`
 --
 ALTER TABLE `aluno`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `aluno_turma`
+-- Índices para tabela `aluno_turma`
 --
 ALTER TABLE `aluno_turma`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `professor`
+-- Índices para tabela `professor`
 --
 ALTER TABLE `professor`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `turma`
+-- Índices para tabela `turma`
 --
 ALTER TABLE `turma`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indexes for table `usuario`
+-- Índices para tabela `usuario`
 --
 ALTER TABLE `usuario`
   ADD PRIMARY KEY (`ID`),
   ADD KEY `ID_usuarioFK` (`ID_usuarioFK`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `aluno`
+-- AUTO_INCREMENT de tabela `aluno`
 --
 ALTER TABLE `aluno`
-  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `ID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT for table `aluno_turma`
+-- AUTO_INCREMENT de tabela `aluno_turma`
 --
 ALTER TABLE `aluno_turma`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
--- AUTO_INCREMENT for table `professor`
+-- AUTO_INCREMENT de tabela `professor`
 --
 ALTER TABLE `professor`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `turma`
+-- AUTO_INCREMENT de tabela `turma`
 --
 ALTER TABLE `turma`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `usuario`
+-- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

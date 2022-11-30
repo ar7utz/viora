@@ -41,7 +41,6 @@ include_once "../../config.php";
                     <td>
                         <a class="btn btn-sm btn-primary" href="visualizar.php?ID=<?= $turma['ID'] ?>">Ver</a>
                         <a class="btn btn-sm btn-danger" href="deletar.php?ID=<?= $turma['ID'] ?>">Excluir</a>
-                        <a class="btn btn-sm btn-success" href="mensagem.php?ID=<?= $turma['ID'] ?>">Mensagem</a>
                     </td>
                 </tr>
             <?php } ?>

@@ -44,7 +44,6 @@
         <a class="nav-link active" href="<?= arquivo('modulos/mensagem/msg.php')?>">Nova Mensagem</a>
         </li>
       </ul>
-      <a class="btn btn-info" href="<?= arquivo('#') ?>">Perfil</a>
       <a class="btn btn-dark" href="<?= arquivo('modulos/login/sair.php')?>">Sair</a>
     </div>
   </div>

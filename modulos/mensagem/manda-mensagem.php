@@ -19,9 +19,9 @@
     $email = enviarEmail($destinatarios, $assunto, $mensagem);
 
     if ($email) {
-        header('Location: msg.php?mensagem=Email enviado com sucesso');
+        header('Location: sucessoenvio.php?mensagem=Email enviado com sucesso');
     } else {
-        header('Location: msg.php?mensagem=Erro ao enviar email');
+        header('Location: erroenvio.php?mensagem=Erro ao enviar email');
     }
 
 
